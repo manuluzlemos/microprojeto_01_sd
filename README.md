@@ -10,25 +10,26 @@ Implementação de um serviço de supermercado delivery com a API de *Sockets* d
 
 ### **Funcionalidades obrigatórias:**
 
-* Listar os produtos disponíveis:
-    - listar o código, a descrição e o preço os produtos cadastrados em db.json.
-* Adicionar produto ao carrinho:
-    - ao adicionar, deve-se fornecer o código do produto e a quantidade de itens do produto.
-* Remover produto do carrinho:
+* Listar os produtos disponíveis (LISTAR):
+    - listar o código, a descrição e o preço os produtos cadastrados no arquivo 'db.json'.
+* Adicionar produto ao carrinho (ADICIONAR):
+    - adicionar o código e a quantidade de itens do produto.
+* Remover produto do carrinho (REMOVER):
     - remover com base no código do produto.
-* Pagar o pedido:
-    - fornece o total pago;
-    - remove itens do carrinho;
-    - insere o código, o valor total do pedido e quantidade de produtos em uma lista para posterior solicitação de entrega.
-* Solicitar entrega:
-    - solicitar a entrega de pedido existentes na lista de pedidos.
+* Pagar o pedido (PAGAR):
+    - insere o código, o valor total do pedido e quantidade de produtos em uma lista para posterior solicitação de entrega;
+    - seta o status de entrega como ***false***;
+    - remove os produtos do carrinho;
+    - fornece o total pago.
+* Solicitar entrega (ENTREGA):
+    - solicitar a entrega de pedido existente na lista de pedidos.
 
 
 ### **Funcionalidades extras:**
 
-* Listar os produtos disponíveis do carrinho:
+* Listar os produtos adicionados ao carrinho (CARRINHO):
     - listar o código, a descrição, a quantidade e o preço dos produtos do carrinho;
     - apresentar o preço total dos produtos do carrinho.
-* Listar os pedidos realizados:
-    - listar o código do pedido, o preço total, a quantidade de produtos e o status de entrega.
+* Listar os pedidos realizados (PEDIDO):
+    - listar o código do pedido, o preço total, a quantidade de produtos e o status de entrega dos pedidos efetuados.
 

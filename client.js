@@ -41,10 +41,13 @@ const connectionListener = async () => {
     socket.write("REMOVER P04\r\n");
     await delayFunction(bufferDelay);
 
+    socket.write("REMOVER P01\r\n");
+    await delayFunction(bufferDelay);
+
     socket.write("CARRINHO\r\n");
     await delayFunction(bufferDelay);
 
-    socket.write("ADICIONAR P03 4\r\n");
+    socket.write("ADICIONAR P33 4\r\n");
     await delayFunction(bufferDelay);
     
     socket.write("CARRINHO\r\n");
@@ -64,63 +67,6 @@ const connectionListener = async () => {
 
     socket.write("PEDIDO\r\n");
     await delayFunction(bufferDelay);
-
-
-    /*
-    let valor = -1;
-    while (valor !== 0) {
-        valor = await menu();
-        switch (valor) {
-            case "1":
-                socket.write("LISTAR\r\n");
-                await delayFunction(bufferDelay);
-                break;
-
-            case "2":
-                socket.write("CARRINHO\r\n");
-                await delayFunction(bufferDelay);
-                break;
-
-            case "3":
-                codigo = "P10";
-                quantidade = 10;
-                socket.write("ADICIONAR" + codigo + " " + quantidade + "\r\n");
-                await delayFunction(bufferDelay);
-                break;
-
-            case "4":
-                codigo = "P10";
-                socket.write("REMOVER" + codigo + "\r\n");
-                await delayFunction(bufferDelay);
-                break;
-
-            case "0":
-                socket.write("SAIR\r\n");
-                break;
-
-            default:
-                console.log("Operação não disponível!")
-        }
-
-        console.log("Deseja prosseguir? S para SIM ou N para NÃO.")
-        var x = console.log(prompt('Input'));
-        if (x == 'N') valor = 0;
-    }*/
-
-
-}
-
-const menu = async () => {
-    console.log("\n\n*** SUPERMECADO DELIVERY ***\n");
-    console.log("Selecione uma das opções abaixo: ");
-    console.log("1 - LISTAR PRODUTOS DISPONÍVEIS");
-    console.log("2 - LISTAR PRODUTOS NO CARRINHO");
-    console.log("3 - ADICIONAR PRODUTOS AO CARRINHO");
-    console.log("4 - REMOVER PRODUTOS DO CARRINHO");
-    console.log("5 - PAGAR O PEDIDO");
-    console.log("6 - SOLICITAR ENTREGA");
-    console.log("0 - SAIR");
-    return "1";
 }
 
 socket.connect(8100, "127.0.0.1", connectionListener);

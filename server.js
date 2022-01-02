@@ -54,12 +54,15 @@ function connectionListener(socket){
                 break;
             
             case "ADICIONAR": //Adicionar produtos ao carrinho
-                carrinho.push({
-                    codigo: params[1],
-                    quantidade: params[2]
-                });
-
-                socket.write("Produto " + params[1] + " adiconado\n");
+                if(params[1] in database){
+                    carrinho.push({
+                        codigo: params[1],
+                        quantidade: params[2]
+                    });
+                    socket.write("O produto " + params[1] + " adiconado!\n");
+                }else{
+                    socket.write("O produto " + params[1] + " não existe!\n");
+                }
                 break;
             
             case "REMOVER": //Remover produtos do carrinho
@@ -67,8 +70,8 @@ function connectionListener(socket){
                     if(carrinho[i].codigo === params[1]){
                         carrinho.splice(i, 1);
                     }
-                }
-                    
+                }   
+                
                 socket.write("Produto " + params[1] + " removido\n");
                 break;
             
@@ -93,10 +96,9 @@ function connectionListener(socket){
 
             case "PEDIDO": //Listar os pedidos realizados pelo cliente
                 let result3 = "**PEDIDOS REALIZADOS**\n";       
-                let preco_total3 = 0;    
 
                 pedidos.forEach((pedido) => {
-                    let status = pedido.status_entrega === true ? 'Solicitada!' : 'Não Solicitada';
+                    let status = pedido.status_entrega === true ? 'Solicitada' : 'Não Solicitada';
                     result3 += `\n--------------------------------------\n| Código: ${pedido.codigo}  -  Produtos: ${pedido.produtos}  -  Valor: R$ ${pedido.valor.toFixed(2)}  -  Status da entrega: ${status}`;
                 });
 
