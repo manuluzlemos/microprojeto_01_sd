@@ -1,0 +1,12 @@
+{
+    "P01": {"descript": "Arroz", "price": 4.50},
+    "P02": {"descript": "Feijao", "price": 5.70},
+    "P03": {"descript": "Macarrao", "price": 4.25},
+    "P04": {"descript": "Oleo", "price": 4.20},
+    "P05": {"descript": "Leite", "price": 6.20},
+    "P06": {"descript": "Sabao", "price": 5.75},
+    "P07": {"descript": "Detergente", "price": 5.70},
+    "P08": {"descript": "Biscoito", "price": 2.70},
+    "P09": {"descript": "Vinagre", "price": 3.39},
+    "P10": {"descript": "Queijo", "price": 24.19}
+}
